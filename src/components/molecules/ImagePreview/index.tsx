@@ -18,26 +18,18 @@ const CloseBox = styled(Flex)`
   cursor: pointer;
 `
 
+/**
+ * 画像URL
+ * 代替テキスト
+ * 縦幅
+ * 横幅
+ * 削除ボタンを押した時のイベントハンドラ
+ */
 interface ImagePreviewProps {
-  /**
-   * 画像URL
-   */
   src?: string
-  /**
-   * 代替テキスト
-   */
   alt?: string
-  /**
-   * 縦幅
-   */
   height?: string
-  /**
-   * 横幅
-   */
   width?: string
-  /**
-   * 削除ボタンを押した時のイベントハンドラ
-   */
   onRemove?: (src: string) => void
 }
 

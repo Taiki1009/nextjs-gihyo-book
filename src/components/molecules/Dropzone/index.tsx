@@ -36,38 +36,24 @@ type FileType =
   | 'video/quicktime'
   | 'application/pdf'
 
+/**
+ * 入力ファイル[]
+ * <input />のname属性
+ * 許可されるファイルタイプ
+ * 横幅
+ * 縦幅
+ * バリデーションエラーフラグ
+ * ファイルがドロップ入力された時のイベントハンドラ
+ * ファイルが入力された時のイベントハンドラ
+ */
 interface DropzoneProps {
-  /**
-   * 入力ファイル
-   */
   value?: File[]
-  /**
-   * <input />のname属性
-   */
   name?: string
-  /**
-   * 許可されるファイルタイプ
-   */
   acceptedFileTypes?: FileType[]
-  /**
-   * 横幅
-   */
   width?: number | string
-  /**
-   * 縦幅
-   */
   height?: number | string
-  /**
-   * バリデーションエラーフラグ
-   */
   hasError?: boolean
-  /**
-   * ファイルがドロップ入力された時のイベントハンドラ
-   */
   onDrop?: (files: File[]) => void
-  /**
-   * ファイルが入力された時のイベントハンドラ
-   */
   onChange?: (files: File[]) => void
 }
 

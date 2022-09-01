@@ -6,7 +6,7 @@ import {
   RenderResult,
 } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
-import Dropdown from '.'
+import Dropdown from './index'
 import { theme } from 'themes'
 
 describe('Dropdown', () => {

@@ -98,30 +98,20 @@ export interface DropdownItem {
   label?: string
 }
 
+/**
+ * ドロップダウンの選択肢
+ * ドロップダウンの値
+ * <input />のname属性
+ * プレースホルダー
+ * バリデーションエラーフラグ
+ * 値が変化した時のイベントハンドラ
+ */
 interface DropdownProps {
-  /**
-   * ドロップダウンの選択肢
-   */
   options: DropdownItem[]
-  /**
-   * ドロップダウンの値
-   */
   value?: string | number
-  /**
-   * <input />のname属性
-   */
   name?: string
-  /**
-   * プレースホルダー
-   */
   placeholder?: string
-  /**
-   * バリデーションエラーフラグ
-   */
   hasError?: boolean
-  /**
-   * 値が変化した時のイベントハンドラ
-   */
   onChange?: (selected?: DropdownItem) => void
 }
 
@@ -137,10 +127,9 @@ const Dropdown = (props: DropdownProps) => {
 
   const handleDocumentClick = useCallback(
     (e: MouseEvent | TouchEvent) => {
-      // 自分自身をクリックした場合は何もしない
+      // selectedItem自身をクリックした場合は何もしない
       if (dropdownRef.current) {
         const elems = dropdownRef.current.querySelectorAll('*')
-
         for (let i = 0; i < elems.length; i++) {
           if (elems[i] == e.target) {
             return
@@ -153,16 +142,18 @@ const Dropdown = (props: DropdownProps) => {
     [dropdownRef],
   )
 
+  // ドロップダウンの開閉処理
   const handleMouseDown = (e: React.SyntheticEvent) => {
     setIsOpenValue((isOpen) => !isOpen)
     e.stopPropagation()
   }
 
+  // 選択肢を選択したときの処理
   const handleSelectValue = (
     e: React.FormEvent<HTMLDivElement>,
     item: DropdownItem,
   ) => {
-    e.stopPropagation()
+    e.stopPropagation() // 親コンポーネントのイベント発火を止める->複数のイベントが起きないように
 
     setSelectedItem(item)
     setIsOpenValue(false)
@@ -190,13 +181,12 @@ const Dropdown = (props: DropdownProps) => {
         onTouchEnd={handleMouseDown}
         data-testid="dropdown-control"
       >
-        {selectedItem && (
+        {/* ドロップダウンが選択されている場合はその値を、選ばれていない場合はプレイスホルダーを表示する */}
+        {selectedItem ? (
           <DropdownValue>
             <DropdownItem item={selectedItem} />
           </DropdownValue>
-        )}
-        {/* 何も選択されてない時はプレースホルダーを表示 */}
-        {!selectedItem && (
+        ) : (
           <DropdownPlaceholder>{props?.placeholder}</DropdownPlaceholder>
         )}
         {/* ダミーinput */}
@@ -208,6 +198,7 @@ const Dropdown = (props: DropdownProps) => {
         />
         <DropdownArrow isOpen={isOpen} />
       </DropdownControl>
+
       {/* ドロップダウンを表示 */}
       {isOpen && (
         <DropdownMenu>
