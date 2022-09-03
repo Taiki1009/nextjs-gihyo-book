@@ -2,13 +2,14 @@ import React, { useReducer, useContext } from 'react'
 import { shopReducer, ADD_PRODUCT, REMOVE_PRODUCT } from './reducers'
 import type { Product } from 'types'
 
+// 商品リスト、追加・削除Reducer
 type ShoppingCartContextType = {
   cart: Product[]
   addProductToCart: (product: Product) => void
   removeProductFromCart: (productId: number) => void
 }
 
-// Contextの作成(初期値)
+// Contextの作成。商品リスト, 追加削除Reducerのコンテキスト作成
 const ShoppingCartContext = React.createContext<ShoppingCartContextType>({
   cart: [],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -26,6 +27,7 @@ interface ShoppingCartContextProviderProps {
 
 /**
  * ショッピングカートコンテキストプロバイダー
+ * アプリケーション全体で使用するため、children(pageコンポーネント)を受け取ってcontextでラップする
  */
 export const ShoppingCartContextProvider = ({
   children,

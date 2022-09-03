@@ -3,26 +3,18 @@ import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 import Flex from 'components/layout/Flex'
 
+/**
+ * バリアント（表示スタイル）
+ * ユーザー名
+ * ユーザー画像URL
+ * ユーザーが所有する商品数
+ * ユーザーの説明
+ */
 interface UserProfileProps {
-  /**
-   * バリアント（表示スタイル）
-   */
   variant?: 'normal' | 'small'
-  /**
-   * ユーザー名
-   */
   username: string
-  /**
-   * ユーザー画像URL
-   */
   profileImageUrl: string
-  /**
-   * ユーザーが所有する商品数
-   */
   numberOfProducts: number
-  /**
-   * ユーザーの説明
-   */
   description?: string
 }
 
@@ -72,7 +64,7 @@ const UserProfile = ({
             <Text marginBottom={1} marginTop={0} as="p">
               {numberOfProducts}点出品済
             </Text>
-            {/* ユーザー概要 */}
+            {/* ユーザー概要(variant=normalの時) */}
             {variant === 'normal' && (
               <Text margin={0} as="p">
                 {description}

@@ -22,7 +22,7 @@ type AuthContextProviderProps = {
   authUser?: User
 }
 
-// Contextの初期値
+// ユーザー情報, ローディンディング?, サインイン/サインアウト処理, 認証処理のContext作成
 const AuthContext = React.createContext<AuthContextType>({
   authUser: undefined,
   isLoading: false,

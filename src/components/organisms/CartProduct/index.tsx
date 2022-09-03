@@ -14,30 +14,20 @@ const RemoveText = styled(Text)`
   }
 `
 
+/**
+ * 商品ID
+ * 商品画像URL
+ * 商品タイトル
+ * 商品価格
+ * 購入ボタンを押した時のイベントハンドラ
+ * 削除ボタンを押した時のイベントハンドラ
+ */
 interface CartProductProps {
-  /**
-   * 商品ID
-   */
   id: number
-  /**
-   * 商品画像URL
-   */
   imageUrl: string
-  /**
-   * 商品タイトル
-   */
   title: string
-  /**
-   * 商品価格
-   */
   price: number
-  /**
-   * 購入ボタンを押した時のイベントハンドラ
-   */
   onBuyButtonClick?: (id: number) => void
-  /**
-   * 削除ボタンを押した時のイベントハンドラ
-   */
   onRemoveButtonClick?: (id: number) => void
 }
 

@@ -3,26 +3,18 @@ import ScaleImage from 'components/atoms/ScaleImage'
 import Text from 'components/atoms/Text'
 import Box from 'components/layout/Box'
 
+/**
+ * 商品タイトル
+ * 商品価格
+ * 商品画像URL
+ * 商品のぼかし画像のデータURIスキーム
+ * バリアント（表示スタイル）
+ */
 interface ProductCardProps {
-  /**
-   * 商品タイトル
-   */
   title: string
-  /**
-   * 商品価格
-   */
   price: number
-  /**
-   * 商品画像URL
-   */
   imageUrl: string
-  /**
-   * 商品のぼかし画像のデータURIスキーム
-   */
   blurDataUrl?: string
-  /**
-   * バリアント（表示スタイル）
-   */
   variant?: 'listing' | 'small' | 'detail'
 }
 
@@ -101,7 +93,8 @@ const ProductCard = ({
         </ProductCardInfo>
       )}
       <ProductCardImageContainer>
-        {blurDataUrl && (
+        {blurDataUrl
+        ? (
           <ScaleImage
             src={imageUrl}
             width={imgSize ?? 240}
@@ -112,8 +105,8 @@ const ProductCard = ({
             placeholder="blur"
             blurDataURL={blurDataUrl}
           />
-        )}
-        {!blurDataUrl && (
+        )
+        : (
           <ScaleImage
             src={imageUrl}
             width={imgSize ?? 240}
