@@ -6,7 +6,7 @@ export default {
   argTypes: {
     placeholder: {
       control: { type: 'text' },
-      description: 'プレイスホルダー',
+      description: 'プレースホルダー',
       table: {
         type: { summary: 'string' },
       },
@@ -22,7 +22,7 @@ export default {
     hasError: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'バリデーションフラグ',
+      description: 'バリデーションエラーフラグ',
       table: {
         type: { summary: 'boolean' },
       },
@@ -32,9 +32,7 @@ export default {
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
-// テキスト入力
 export const Normal = Template.bind({})
 
-// 赤枠のテキスト入力
 export const Error = Template.bind({})
 Error.args = { hasError: true }

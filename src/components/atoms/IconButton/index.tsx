@@ -35,6 +35,7 @@ const IconWrapper = styled.div<IconWrapperProps>`
     if (color) {
       return theme.colors[color]
     }
+
     return theme.colors.icon
   }};
   svg {

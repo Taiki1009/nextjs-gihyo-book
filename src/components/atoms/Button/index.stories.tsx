@@ -8,6 +8,7 @@ export default {
       options: ['primary', 'secondary'],
       control: { type: 'radio' },
       defaultValue: 'primary',
+      // docsに表示する内容を設定
       description: 'ボタンバリアント',
       table: {
         type: { summary: 'primary | secondary' },
@@ -32,14 +33,14 @@ export default {
     },
     width: {
       control: { type: 'number' },
-      description: '横幅',
+      description: 'ボタンの横幅',
       table: {
         type: { summary: 'number' },
       },
     },
     height: {
       control: { type: 'number' },
-      description: '縦幅',
+      description: 'ボタンの縦幅',
       table: {
         type: { summary: 'number' },
       },
@@ -55,14 +56,14 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-// プライマリボタン
+// Primaryボタン
 export const Primary = Template.bind({})
 Primary.args = { variant: 'primary', children: 'Primary Button' }
 
-// セカンダリボタン
+// Secondaryボタン
 export const Secondary = Template.bind({})
 Secondary.args = { variant: 'secondary', children: 'Secondary Button' }
 
-// 無効化ボタン
-export const Disable = Template.bind({})
-Disable.args = { variant: 'disable', children: 'Disable Button' }
+// Disabledボタン
+export const Disabled = Template.bind({})
+Disabled.args = { disabled: true, children: 'Disabled Button' }

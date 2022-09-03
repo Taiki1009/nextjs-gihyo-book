@@ -22,7 +22,7 @@ export default {
       },
     },
     width: {
-      control: { type: 'text' },
+      control: { type: 'number' },
       defaultValue: 320,
       description: '横幅',
       table: {
@@ -30,9 +30,9 @@ export default {
       },
     },
     height: {
-      control: { type: 'text' },
-      defaultValue: 320,
+      control: { type: 'number' },
       description: '縦幅',
+      defaultValue: 320,
       table: {
         type: { summary: 'number' },
       },

@@ -13,7 +13,6 @@ export default {
     },
     backgroundColor: {
       control: { type: 'color' },
-      defaultValue: 5,
       description: 'バッジの色',
       table: {
         type: { summary: 'string' },
@@ -24,14 +23,11 @@ export default {
 
 const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
 
-// オレンジ色のバッジ
 export const Orange = Template.bind({})
 Orange.args = { content: '1', backgroundColor: '#ed9f28' }
 
-// 緑色のバッジ
 export const Green = Template.bind({})
 Green.args = { content: '2', backgroundColor: '#32bf00' }
 
-// 赤色のバッジ
 export const Red = Template.bind({})
 Red.args = { content: '10', backgroundColor: '#d4001a' }

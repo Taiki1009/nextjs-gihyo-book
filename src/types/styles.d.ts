@@ -1,11 +1,13 @@
-/* typescriptの型推論のため */
 /* eslint-disable @typescript-eslint/ban-types */
+/**
+ * Responsiveプロパティ
+ */
 export type ResponsiveProp<T> = {
-  base?: T // デフォルト
-  ms?: T // 640px以上
-  md?: T // 768px以上
-  lg?: T // 1024px以上
-  xl?: T // 1280px以上
+  base?: T
+  sm?: T
+  md?: T
+  lg?: T
+  xl?: T
 }
 export type Responsive<T> = T | ResponsiveProp<T>
 

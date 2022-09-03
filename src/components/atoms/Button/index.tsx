@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
-import { Responsive } from 'types/styles'
+import { Responsive } from 'types'
 import {
   toPropValue,
   Color,
@@ -39,16 +40,17 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   paddingBottom?: Responsive<Space>
   paddingLeft?: Responsive<Space>
   pseudoClass?: {
-    hover: {
+    hover?: {
       backgroundColor?: Responsive<Color>
     }
-    disabled: {
+    disabled?: {
       backgroundColor?: Responsive<Color>
     }
   }
 }
 
 const variants = {
+  // プライマリ
   primary: {
     color: 'white',
     backgroundColor: 'primary',
@@ -62,6 +64,7 @@ const variants = {
       },
     },
   },
+  // セカンダリ
   secondary: {
     color: 'white',
     backgroundColor: 'secondary',
@@ -75,6 +78,7 @@ const variants = {
       },
     },
   },
+  // デンジャー
   danger: {
     color: 'white',
     backgroundColor: 'danger',
@@ -92,11 +96,11 @@ const variants = {
 
 /**
  * ボタン
- * バリアント、色、タイポグラフィ、ボーダー、レイアウト、スペース
- * 関連のpropsを追加
+ * バリアント、色、タイポグラフィ、レイアウト、スペース関連のPropsを追加
  */
 const Button = styled.button<ButtonProps>`
   ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
+    // バリアントのスタイルの適用
     if (variant && variants[variant]) {
       const styles = []
       !color &&
@@ -136,8 +140,7 @@ const Button = styled.button<ButtonProps>`
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
   ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) =>
-    toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}
@@ -172,7 +175,7 @@ const Button = styled.button<ButtonProps>`
   cursor: pointer;
   outline: 0;
   text-decoration: 'none';
-  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')}
+  opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   border-radius: 4px;
   border: none;
 `

@@ -38,7 +38,7 @@ export default {
     hasError: {
       control: { type: 'boolean' },
       defaultValue: false,
-      description: 'バリデーションエラー',
+      description: 'バリデーションエラーフラグ',
       table: {
         type: { summary: 'boolean' },
       },
@@ -56,9 +56,7 @@ const Template: ComponentStory<typeof TextArea> = (args) => (
   <TextArea {...args} />
 )
 
-// テキストエリア
 export const Normal = Template.bind({})
 
-// 赤枠のテキストエリア
 export const Error = Template.bind({})
 Error.args = { hasError: true }

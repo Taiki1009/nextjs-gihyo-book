@@ -1,11 +1,12 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
-import Box, { BoxProps } from '../Box'
+import Box, { BoxProps } from 'components/layout/Box'
 import type {
   Responsive,
   CSSPropertyAlignItems,
   CSSPropertyAlignContent,
-  CSSPropertyJustifyItems,
   CSSPropertyJustifyContent,
+  CSSPropertyJustifyItems,
   CSSPropertyFlexDirection,
   CSSPropertyJustifySelf,
   CSSPropertyFlexWrap,
@@ -35,9 +36,8 @@ type FlexProps = BoxProps & {
 const Flex = styled(Box)<FlexProps>`
   ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
   ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
+  ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
   ${(props) => toPropValue('justify-items', props.justifyItems, props.theme)}
-  ${(props) =>
-    toPropValue('justify-content', props.justifyContent, props.theme)}
   ${(props) => toPropValue('flex-wrap', props.flexWrap, props.theme)}
   ${(props) => toPropValue('flex-basis', props.flexBasis, props.theme)}
   ${(props) => toPropValue('flex-direction', props.flexDirection, props.theme)}

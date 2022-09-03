@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components'
 
+/**
+ * テキストインプット
+ */
 const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   color: ${({ theme }) => theme.colors.inputText};
   ${({ theme, hasBorder, hasError }) => {
-    // ボーダー表示
     if (hasBorder) {
-      // エラーなら赤枠ボーダー
       return css`
         border: 1px solid
           ${hasError ? theme.colors.danger : theme.colors.border};
@@ -17,7 +18,7 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
       `
     }
   }}
-  padding; 11px 12px 12px 9px;
+  padding: 11px 12px 12px 9px;
   box-sizing: border-box;
   outline: none;
   width: 100%;
@@ -35,7 +36,7 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
     margin: 0;
   }
 
-  &[type='number] {
+  &[type='number'] {
     -moz-appearance: textfield;
   }
 `

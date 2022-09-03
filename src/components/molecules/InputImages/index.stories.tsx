@@ -1,7 +1,7 @@
 import { ComponentMeta } from '@storybook/react'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import InputImages, { FileData } from '.'
+import InputImages, { FileData } from './'
 
 export default { title: 'Molecules/InputImages' } as ComponentMeta<
   typeof InputImages

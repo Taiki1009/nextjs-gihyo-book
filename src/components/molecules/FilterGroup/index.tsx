@@ -28,7 +28,6 @@ const FilterGroup = ({
 }: FilterGroupProps) => {
   const [selected, setSelected] = useState(value ?? defaultValue)
 
-  // valueに変更があれば更新
   useEffect(() => {
     setSelected(value)
   }, [value])
@@ -57,7 +56,7 @@ const FilterGroup = ({
             <CheckBox
               name={name}
               label={label}
-              checked={!!selected.find((e) => e === name)} // boolean型を返すために二重否定
+              checked={!!selected.find((e) => e === name)}
               onChange={handleChange}
             />
           </Box>

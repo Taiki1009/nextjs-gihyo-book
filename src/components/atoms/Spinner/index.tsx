@@ -11,16 +11,19 @@ const StyledSpinner = styled.svg<{ size: number; isAutoCentering: boolean }>`
       : ``}
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
+
   & .path {
     stroke: #000000;
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
+
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
     }
   }
+
   @keyframes dash {
     0% {
       stroke-dasharray: 1, 150;

@@ -1,6 +1,4 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState } from 'react'
 import CheckBox from './index'
 
 export default {

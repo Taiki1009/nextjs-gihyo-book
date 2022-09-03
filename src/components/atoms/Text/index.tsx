@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import styled from 'styled-components'
-import { Responsive } from 'types/styles'
+import type { Responsive } from 'types/styles'
 import {
   toPropValue,
   Space,
@@ -81,10 +82,11 @@ const variants = {
 
 /**
  * テキスト
- * バリアント、色、タイポグラフィ、ボーダー、レイアウト、スペース関連のpropsを追加
+ * バリアント、色、タイポグラフィ、レイアウト、スペース関連のPropsを追加
  */
 const Text = styled.span<TextProps>`
   ${({ variant, fontSize, letterSpacing, lineHeight, theme }) => {
+    // バリアントのスタイルの適用
     if (variant && variants[variant]) {
       const styles = []
       !fontSize &&
@@ -100,12 +102,11 @@ const Text = styled.span<TextProps>`
       return styles.join('\n')
     }
   }}
-  ${(props) => toPropValue('fontSize', props.fontSize, props.theme)}
-  ${(props) => toPropValue('letterSpacing', props.letterSpacing, props.theme)}
-  ${(props) => toPropValue('lineHeight', props.lineHeight, props.theme)}
+  ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
+  ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
+  ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) =>
-    toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}

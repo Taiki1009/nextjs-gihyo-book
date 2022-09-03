@@ -39,8 +39,6 @@ const CheckBox = (props: CheckBoxProps) => {
       ref.current?.click()
       setIsChecked((isChecked) => !isChecked)
     },
-    // ref：チェックボックスのクリックされる位置->クリックされたかどうか
-    // isChecked：チェックボックスのステータス->更新内容をtrue/falseで切り替え
     [ref, setIsChecked],
   )
 
@@ -51,7 +49,6 @@ const CheckBox = (props: CheckBoxProps) => {
 
   return (
     <>
-      {/* 何のための非表示ボックス？ 後で調べる */}
       <CheckBoxElement
         {...rest}
         ref={ref}
