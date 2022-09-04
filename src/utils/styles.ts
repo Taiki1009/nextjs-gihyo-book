@@ -19,7 +19,7 @@ export type FontSize = FontSizeThemeKeys | (string & {})
 export type LetterSpacing = LetterSpacingThemeKeys | (string & {})
 export type LineHeight = LineHeightThemeKeys | (string & {})
 
-// ブレークポイント
+// ブレイクポイント
 const BREAKPOINTS: { [key: string]: string } = {
   sm: '640px', // 640px以上
   md: '768px', // 768px以上
@@ -32,8 +32,7 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param propKey CSSプロパティ
  * @param prop Responsive型
  * @param theme AppTheme
- * @returns CSSプロパティとその値（ex. background-color: white;）
- * @example toPropValue('margin-bottom', '8px', theme) >> 'margin-bottom: 8px;'
+ * @returns CSSプロパティとその値 (ex. background-color: white;)
  */
 export function toPropValue<T>(
   propKey: string,
@@ -65,8 +64,8 @@ export function toPropValue<T>(
           propKey,
           prop[responsiveKey],
           theme,
-        )}`
-        result.push(`@media screen and (min-width: ${breakpoint}) {${style}`)
+        )};`
+        result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`)
       }
     }
     return result.join('\n')
@@ -89,15 +88,15 @@ const SPACE_KEYS = new Set([
 ])
 const COLOR_KEYS = new Set(['color', 'background-color'])
 const FONT_SIZE_KEYS = new Set(['font-size'])
-const LETTER_SPACING_KEYS = new Set(['letter-spacing'])
+const LINE_SPACING_KEYS = new Set(['letter-spacing'])
 const LINE_HEIGHT_KEYS = new Set(['line-height'])
 
 /**
- * Responsive型をCSSプロパティとその値に変換
+ * Themeに指定されたCSSプロパティの値に変換
  * @param propKey CSSプロパティ
- * @param prop Responsive型
+ * @param value CSSプロパティの値
  * @param theme AppTheme
- * @returns CSSプロパティとその値（ex. background-color: white;）
+ * @returns CSSプロパティの値
  */
 function toThemeValueIfNeeded<T>(propKey: string, value: T, theme?: AppTheme) {
   if (
@@ -124,7 +123,7 @@ function toThemeValueIfNeeded<T>(propKey: string, value: T, theme?: AppTheme) {
   } else if (
     theme &&
     theme.letterSpacings &&
-    LETTER_SPACING_KEYS.has(propKey) &&
+    LINE_SPACING_KEYS.has(propKey) &&
     isLetterSpacingThemeKeys(value, theme)
   ) {
     return theme.letterSpacings[value]
@@ -179,5 +178,5 @@ function isLineHeightThemeKeys(
   prop: any,
   theme: AppTheme,
 ): prop is LineHeightThemeKeys {
-  return Object.keys(theme.space).filter((key) => key == prop).length > 0
+  return Object.keys(theme.lineHeights).filter((key) => key == prop).length > 0
 }

@@ -1,7 +1,6 @@
 import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-// デフォルトのDocumentをMyDocumentで上書きする
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext,
@@ -16,15 +15,12 @@ export default class MyDocument extends Document {
             sheet.collectStyles(<App {...props} />),
         })
 
-      // 初期値を流用
       const initialProps = await Document.getInitialProps(ctx)
 
-      // initialPropsに加えて、styleを追加して返す
       return {
         ...initialProps,
         styles: [
           <>
-            {/* もともとのstyleとstyled-componentsのstyle */}
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>,

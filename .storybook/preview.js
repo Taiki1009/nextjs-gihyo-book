@@ -22,16 +22,14 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
-  
   * {
     box-sizing: border-box;
   }
-
   a {
     cursor: pointer;
     text-decoration: none;
     transition: .25s;
-    color: #000;
+    color: #000000;
   }
 `
 
@@ -52,7 +50,10 @@ Object.defineProperty(NextImage, 'default', {
   ? (<OriginalNextImage {...props} unoptimized blurDataURL={props.src} />)
   : (<OriginalNextImage {...props} unoptimized />),
 })
-Object.defineProperty(NextImage, '__esModule', {
-  configurable: true,
-  value: true,
-})
+
+// [FIXME] 下記のコードをコメントアウトしないとStorybookが動かない。後で調べる
+// -> 公式GitHubのプルリクで対応済 (Storybookが最新のNext.jsで動作しない問題を修正)[https://github.com/gihyo-book/ts-nextbook-app]
+// Object.defineProperty(NextImage, '__esModule', {
+//   configurable: true,
+//   value: true,
+// })
