@@ -1,5 +1,10 @@
 ## TypeScriptとReact/Next.jsでつくる実践Webアプリケーション
 
+- JSONサーバー（nextjs-gihyo-jsonディレクトリ）を立ち上げる
+  - `node server.js`
+- UIサーバー(本ディレクトリ)を立ち上げる
+  - `npm run dev`
+
 
 ## 環境変数の設定
 
