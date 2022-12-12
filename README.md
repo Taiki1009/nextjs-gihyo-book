@@ -1,5 +1,6 @@
-## TypeScriptとReact/Next.jsでつくる実践Webアプリケーション
+## TypeScriptとReact/Next.jsでつくる実践Webアプリケーション フロント学習
 
+### 動かし方
 - JSONサーバー（nextjs-gihyo-jsonディレクトリ）を立ち上げる
   - `node server.js`
 - UIサーバー(本ディレクトリ)を立ち上げる
